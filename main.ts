@@ -1,20 +1,34 @@
 let X_value = 0
 let Y_value = 0
 input.onButtonPressed(Button.A, function () {
-    X_value = 0
-    while (X_value >= 0) {
-        led.plot(X_value, 0)
-        basic.pause(200)
-        basic.clearScreen()
-        X_value += 1
-    }
+	
 })
 input.onButtonPressed(Button.B, function () {
-    Y_value = 0
-    while (Y_value >= 0) {
-        led.plot(0, Y_value)
-        basic.pause(200)
+	
+})
+basic.forever(function () {
+	
+})
+basic.forever(function () {
+	
+})
+basic.forever(function () {
+    if (X_value >= 4) {
+        Y_value = 0
+    }
+    if (X_value <= 0) {
+        Y_value = 1
+    }
+    if (X_value == 0) {
+        X_value += -1
         basic.clearScreen()
-        Y_value += 1
+        led.plot(X_value, Y_value)
+        basic.pause(200)
+    }
+    if (X_value == 1) {
+        X_value += 1
+        basic.clearScreen()
+        led.plot(X_value, Y_value)
+        basic.pause(200)
     }
 })
